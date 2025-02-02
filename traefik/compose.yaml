@@ -14,7 +14,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${CERT_PATH}:/acme.json
-      - ${CONFIG_PATH}:/config.yml:ro
+      - ${CONFIG_PATH}:/config.yaml:ro
 
 networks:
   proxy:
