@@ -1,0 +1,4 @@
+services:
+  plex:
+    labels:
+      com.centurylinklabs.watchtower.enable: true
