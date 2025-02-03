@@ -1,0 +1,4 @@
+services:
+  beszel-agent:
+    labels:
+      com.centurylinklabs.watchtower.enable: true
