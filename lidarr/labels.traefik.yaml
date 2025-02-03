@@ -1,0 +1,14 @@
+services:
+  lidarr:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.lidarr-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.lidarr-secure.entrypoints: "https"
+      traefik.http.routers.lidarr-secure.rule: "Host(`lidarr.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.lidarr-secure.service: "lidarr"
+      traefik.http.routers.lidarr-secure.tls: true
+      traefik.http.routers.lidarr.entrypoints: "http"
+      traefik.http.routers.lidarr.middlewares: "lidarr-https-redirect"
+      traefik.http.routers.lidarr.rule: "Host(`lidarr.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.lidarr.loadbalancer.server.port: 8686

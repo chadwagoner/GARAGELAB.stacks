@@ -1,0 +1,4 @@
+services:
+  lidarr:
+    labels:
+      com.centurylinklabs.watchtower.enable: true
