@@ -1,0 +1,10 @@
+services:
+  beszel:
+    networks:
+      - internal
+    ports:
+      - 8090:8090
+
+networks:
+  internal:
+    external: true
