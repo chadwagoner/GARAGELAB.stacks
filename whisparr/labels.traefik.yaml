@@ -1,0 +1,14 @@
+services:
+  whisparr:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.whisparr-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.whisparr-secure.entrypoints: "https"
+      traefik.http.routers.whisparr-secure.rule: "Host(`whisparr.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.whisparr-secure.service: "whisparr"
+      traefik.http.routers.whisparr-secure.tls: true
+      traefik.http.routers.whisparr.entrypoints: "http"
+      traefik.http.routers.whisparr.middlewares: "whisparr-https-redirect"
+      traefik.http.routers.whisparr.rule: "Host(`whisparr.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.whisparr.loadbalancer.server.port: 6969
