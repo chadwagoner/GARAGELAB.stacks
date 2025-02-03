@@ -1,0 +1,4 @@
+services:
+  radarr:
+    labels:
+      com.centurylinklabs.watchtower.enable: true
