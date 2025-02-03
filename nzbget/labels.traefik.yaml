@@ -1,0 +1,14 @@
+services:
+  nzbget:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.nzbget-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.nzbget-secure.entrypoints: "https"
+      traefik.http.routers.nzbget-secure.rule: "Host(`nzbget.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.nzbget-secure.service: "nzbget"
+      traefik.http.routers.nzbget-secure.tls: true
+      traefik.http.routers.nzbget.entrypoints: "http"
+      traefik.http.routers.nzbget.middlewares: "nzbget-https-redirect"
+      traefik.http.routers.nzbget.rule: "Host(`nzbget.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.nzbget.loadbalancer.server.port: 6789
