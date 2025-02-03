@@ -1,0 +1,14 @@
+services:
+  dozzle:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.dozzle-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.dozzle-secure.entrypoints: "https"
+      traefik.http.routers.dozzle-secure.rule: "Host(`dozzle.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.dozzle-secure.service: "dozzle"
+      traefik.http.routers.dozzle-secure.tls: true
+      traefik.http.routers.dozzle.entrypoints: "http"
+      traefik.http.routers.dozzle.middlewares: "dozzle-https-redirect"
+      traefik.http.routers.dozzle.rule: "Host(`dozzle.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.dozzle.loadbalancer.server.port: 8080
