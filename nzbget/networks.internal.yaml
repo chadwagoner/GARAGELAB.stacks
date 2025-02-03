@@ -1,10 +1,10 @@
 services:
   nzbget:
     networks:
-      - proxy
+      - internal
     ports:
       - 6789:6789
 
 networks:
-  proxy:
+  internal:
     external: true
