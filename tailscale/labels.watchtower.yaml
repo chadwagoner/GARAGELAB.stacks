@@ -1,0 +1,4 @@
+services:
+  tailscale:
+    labels:
+      com.centurylinklabs.watchtower.enable: true
