@@ -1,0 +1,11 @@
+services:
+  change-detection:
+    image: linuxserver/changedetection.io:latest
+    container_name: change-detection
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_PATH}:/config

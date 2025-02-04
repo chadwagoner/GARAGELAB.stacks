@@ -1,0 +1,10 @@
+services:
+  change-detection:
+    networks:
+      - proxy
+    environment:
+      BASE_URL: "https://change-detection.${SUBDOMAIN}.${DOMAIN}"
+
+networks:
+  proxy:
+    external: true

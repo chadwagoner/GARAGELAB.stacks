@@ -1,0 +1,14 @@
+services:
+  change-detection:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.change-detection-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.change-detection-secure.entrypoints: "https"
+      traefik.http.routers.change-detection-secure.rule: "Host(`change-detection.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.change-detection-secure.service: "change-detection"
+      traefik.http.routers.change-detection-secure.tls: true
+      traefik.http.routers.change-detection.entrypoints: "http"
+      traefik.http.routers.change-detection.middlewares: "change-detection-https-redirect"
+      traefik.http.routers.change-detection.rule: "Host(`change-detection.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.change-detection.loadbalancer.server.port: 5000

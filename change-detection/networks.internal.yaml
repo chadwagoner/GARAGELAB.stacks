@@ -1,0 +1,10 @@
+services:
+  change-detection:
+    networks:
+      - internal
+    ports:
+      - 5000:5000
+
+networks:
+  internal:
+    external: true
