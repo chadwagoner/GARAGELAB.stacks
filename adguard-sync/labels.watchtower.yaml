@@ -1,0 +1,4 @@
+services:
+  adguard-sync:
+    labels:
+      com.centurylinklabs.watchtower.enable: true

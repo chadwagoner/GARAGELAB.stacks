@@ -1,0 +1,14 @@
+services:
+  adguard-sync:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.adguard-sync-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.adguard-sync-secure.entrypoints: "https"
+      traefik.http.routers.adguard-sync-secure.rule: "Host(`adguard-sync.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.adguard-sync-secure.service: "adguard-sync"
+      traefik.http.routers.adguard-sync-secure.tls: true
+      traefik.http.routers.adguard-sync.entrypoints: "http"
+      traefik.http.routers.adguard-sync.middlewares: "adguard-sync-https-redirect"
+      traefik.http.routers.adguard-sync.rule: "Host(`adguard-sync.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.adguard-sync.loadbalancer.server.port: 8080
