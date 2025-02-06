@@ -1,0 +1,8 @@
+services:
+  watchtower:
+    networks:
+      - management
+
+networks:
+  management:
+    external: true
