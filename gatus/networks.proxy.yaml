@@ -1,0 +1,8 @@
+services:
+  gatus:
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

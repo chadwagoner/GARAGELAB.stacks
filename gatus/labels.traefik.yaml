@@ -1,0 +1,14 @@
+services:
+  gatus:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.gatus-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.gatus-secure.entrypoints: "https"
+      traefik.http.routers.gatus-secure.rule: "Host(`gatus.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.gatus-secure.service: "gatus"
+      traefik.http.routers.gatus-secure.tls: true
+      traefik.http.routers.gatus.entrypoints: "http"
+      traefik.http.routers.gatus.middlewares: "gatus-https-redirect"
+      traefik.http.routers.gatus.rule: "Host(`gatus.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.gatus.loadbalancer.server.port: 8080

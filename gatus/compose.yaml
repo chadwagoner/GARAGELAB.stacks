@@ -1,0 +1,10 @@
+services:
+  gatus:
+    image: twinproduction/gatus:latest
+    container_name: gatus
+    restart: unless-stopped
+    environment:
+      GATUS_CONFIG_PATH: "/config"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_PATH}:/config
