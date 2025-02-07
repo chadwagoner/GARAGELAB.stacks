@@ -1,0 +1,7 @@
+services:
+  jenkins:
+    labels:
+      com.centurylinklabs.watchtower.enable: true
+  jenkins-ssh-agent:
+    labels:
+      com.centurylinklabs.watchtower.enable: true

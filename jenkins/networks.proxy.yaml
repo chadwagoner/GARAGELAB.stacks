@@ -1,0 +1,11 @@
+services:
+  jenkins:
+    networks:
+      - proxy
+  jenkins-ssh-agent:
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

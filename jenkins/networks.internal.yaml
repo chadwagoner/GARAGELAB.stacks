@@ -1,0 +1,13 @@
+services:
+  jenkins:
+    networks:
+      - management
+    ports:
+      - 8080:8080
+  jenkins-ssh-agent:
+    networks:
+      - management
+
+networks:
+  management:
+    external: true
