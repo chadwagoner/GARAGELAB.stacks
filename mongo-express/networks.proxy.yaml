@@ -1,0 +1,8 @@
+services:
+  mongo-express:
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

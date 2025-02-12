@@ -1,0 +1,14 @@
+services:
+  mongo-express:
+    labels:
+      traefik.docker.network: "proxy"
+      traefik.enable: true
+      traefik.http.middlewares.mongo-express-https-redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.mongo-express-secure.entrypoints: "https"
+      traefik.http.routers.mongo-express-secure.rule: "Host(`mongo-express.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.routers.mongo-express-secure.service: "mongo-express"
+      traefik.http.routers.mongo-express-secure.tls: true
+      traefik.http.routers.mongo-express.entrypoints: "http"
+      traefik.http.routers.mongo-express.middlewares: "mongo-express-https-redirect"
+      traefik.http.routers.mongo-express.rule: "Host(`mongo-express.${SUBDOMAIN}.${DOMAIN}`)"
+      traefik.http.services.mongo-express.loadbalancer.server.port: 8081

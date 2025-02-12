@@ -1,0 +1,8 @@
+services:
+  mongo-express:
+    networks:
+      - db
+
+networks:
+  db:
+    external: true
