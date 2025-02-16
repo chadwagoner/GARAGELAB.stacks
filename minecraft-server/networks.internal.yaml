@@ -1,5 +1,5 @@
 services:
-  maintainerr:
+  minecraft-server:
     networks:
       - internal
     ports:
