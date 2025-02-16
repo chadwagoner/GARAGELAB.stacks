@@ -1,0 +1,11 @@
+services:
+  maintainerr:
+    networks:
+      - internal
+    ports:
+      - 19132:19132/tcp
+      - 19132:19132/udp
+
+networks:
+  internal:
+    external: true
