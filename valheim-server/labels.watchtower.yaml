@@ -1,0 +1,4 @@
+services:
+  valheim-server:
+    labels:
+      com.centurylinklabs.watchtower.enable: true
