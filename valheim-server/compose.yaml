@@ -7,7 +7,7 @@ services:
       SERVER_NAME: ${VALHEIM_SERVER}
       WORLD_NAME: ${VALHEIM_WORLD}
       SERVER_PASS: ${VALHEIM_PASSWORD}
-      SERVER_PUBLIC: true/false
+      SERVER_PUBLIC: false
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${CONFIG_PATH}:/config
